@@ -1,0 +1,6 @@
+*.js
+*.js.map
+/out
+/node_modules
+/test
+*test*
