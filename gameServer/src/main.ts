@@ -1,13 +1,5 @@
-import * as WebSocketServer from 'ws';
-let wss = new WebSocketServer.Server({ port: 8181 });
-wss.on('connection', function (ws) {
-    console.log('client connected');
-    ws.on('message', function (message) {
-        console.log(message);
-    });
-});
+import {httpServer} from './net/http/http_server';
 
-console.log('listen on 8181')
-
-import { BasicApi } from "./api/basic";
-console.log(BasicApi.heart(), BasicApi.warmup());
+httpServer.createServer(3000);
+// import { BasicApi } from "./api/basic";
+// console.log(BasicApi.heart(), BasicApi.warmup());
