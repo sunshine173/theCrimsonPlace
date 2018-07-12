@@ -10,6 +10,6 @@ export function testError(callback) {
     return callback(new Error('testError'));
 }
 
-export function testPost(params:object, callback) {
+export function testPost(params, callback) {
     return callback(null, params);
 }
