@@ -17,6 +17,7 @@
   import Vue from 'vue';
 
   export default {
+    name: 'config',
     data: function () {
       var self = this;
       var setting = {
@@ -108,7 +109,7 @@
     created:function(){
       var self = this;
       setTimeout(function () {
-        console.log(self.sourceData)
+        // console.log(self.sourceData)
       }, 2000)
     },
     props:{
@@ -122,11 +123,11 @@
       },
       colHeaders:{
         type: Array,
-        required: true,
+        required: false,
       },
       columns:{
         type: Array,
-        required: true,
+        required: false,
       }
     },
     name: 'SampleApp',

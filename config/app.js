@@ -45,6 +45,7 @@ app.use(function(err, req, res, next) {
 
   // render the error page
   res.status(err.status || 500);
+  console.log(err);
   res.send({err:err.toString(), stack:err.stack});
 });
 app.listen(8081);
