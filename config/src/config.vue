@@ -112,6 +112,18 @@
         // console.log(self.sourceData)
       }, 2000)
     },
+    watch:{
+      data(val) {
+        this.setting.data = val;
+      },
+      colHeaders(val){
+        this.setting.colHeaders = val;
+        this.setting.maxCols = val.length;
+      },
+      columns(val) {
+        this.setting.columns = val;
+      }
+    },
     props:{
       name:{
         type: String,

@@ -1,15 +1,15 @@
 <template>
   <div id="index" align="left">
     <div>
-      <h4>枚举</h4>
+      <!--<h4>枚举</h4>-->
       <button v-for="name in enumList" v-on:click="changeConfig(name, 1)">{{name}}</button>
     </div>
     <div>
-      <h4>配置表字段配置</h4>
+      <!--<h4>配置表字段配置</h4>-->
       <button v-for="name in structList" v-on:click="changeConfig(name, 2)">{{name}}</button>
     </div>
     <div>
-      <h4>配置表配置</h4>
+      <!--<h4>配置表配置</h4>-->
       <button v-for="name in configList" v-on:click="changeConfig(name, 3)">{{name}}</button>
     </div>
   </div>

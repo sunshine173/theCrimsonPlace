@@ -1,7 +1,0 @@
-[
-  ["id", "背包类型","数值", "", "strict", ""],
-  ["name", "背包名字", "枚举", "bagType",  "strict", ""],
-  ["baseGridNum", "背包基础格子","数值", "",  "strict", ""],
-  ["buyGridNum", "背包每次购买增加格子", "数值", "",  "strict", ""],
-  ["buyGridNum", "背包最大格子", "数值", "",  "strict", ""]
-]
