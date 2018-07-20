@@ -1,25 +1,13 @@
-var mongoose = require('mongoose');
-var options = {
+let mongoose = require('mongoose');
+let options = {
   useNewUrlParser:true,
-  server: {
-    socketOptions: {
-      keepAlive: 1,
-      connectTimeoutMS: 30000
-    } ,
-    reconnectTries:30,
-    reconnectInterval:3000
-  },
-  replset: {
-    socketOptions: {
-      keepAlive: 1,
-      connectTimeoutMS: 30000
-    }
-  }
+  reconnectTries:1000,
+  reconnectInterval:3000,
+  keepAlive: 1,
+  connectTimeoutMS: 30000
 };
-mongoose.connect('mongodb://127.0.0.1:27017/config', options);
-
-var configSchema = mongoose.Schema({
-  name: String,
+let configSchema = mongoose.Schema({
+  name: {type:String,index: {unique: true, dropDups: true}},
   createTime:{type: Date, default: Date.now},
   updateTime:{type: Date, default: Date.now},
   //配置
@@ -31,13 +19,13 @@ var configSchema = mongoose.Schema({
   //最后操作说明
   lastChangeDesc:String
 });
-configSchema.index({ name: 1});
-
-var db = mongoose.connection;
 var Config;
+
+mongoose.connect('mongodb://127.0.0.1:27017/config', options);
+var db = mongoose.connection;
+
 db.on('error', function (err) {
   console.log(err);
-  Config = null;
 });
 db.once('open', function (callback) {
   console.log('open');

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h4 align="left">{{name}}:{{saveResult}}</h4>
+    <h4 align="left">{{name}}:{{type}}:{{saveResult}}</h4>
     <div id="example-container" class="wrapper">
       <HotTable :root="root" :settings="setting"></HotTable>
     </div>
@@ -75,7 +75,7 @@
         columnSorting: true,//排序
         stretchH: 'all',//根据宽度横向扩展，last:只扩展最后一列，none：默认不扩展
         afterChange: function (changes, source) { //数据改变时触发此方法
-          self.sourceData = this.getData();
+          self.sourceData = this.getSourceData();
           self.saveConfig();
       },
       };
@@ -92,11 +92,19 @@
     },
     methods:{
       saveConfig(){
+        if (!this.sourceData) return;
         var self = this;
+        console.log({
+          config:self.sourceData,
+          name:self.name,
+          type:self.type
+        })
         this.$http.post('http://localhost:8081/saveconfig',{
-          sourceData:self.sourceData
+          config:self.sourceData,
+          name:self.name,
+          type:self.type
         },{
-          emulateJSON:true
+          JSON:true
         }).then(function(response){
           // response.data中获取ResponseData实体
           self.saveResult = response.data+new Date().toString();
@@ -107,10 +115,7 @@
       }
     },
     created:function(){
-      var self = this;
-      setTimeout(function () {
-        // console.log(self.sourceData)
-      }, 2000)
+
     },
     watch:{
       data(val) {
@@ -128,6 +133,10 @@
       name:{
         type: String,
         required: true,
+      },
+      type:{
+        type:String,
+        required: true
       },
       data:{
         type: Array,

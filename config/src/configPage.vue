@@ -1,6 +1,6 @@
 <template>
   <div id="configPage">
-    <Table :name="configName" :data="myData" :colHeaders="colHeaders" :columns="columns"></Table>
+    <Table :name="configName" :type="configType" :data="myData" :colHeaders="colHeaders" :columns="columns"></Table>
   </div>
 </template>
 
@@ -13,9 +13,9 @@
       return {
         configName:"config",
         configType:"",
-        myData: [ [ 1, '装备' ], [ 2, '符文' ], [ 3, '消耗品' ], [ 4, '材料' ] ] ,
-        colHeaders:   [ '1', '2' ],
-        columns:  [ { type: 'numeric' }, {  } ]
+        myData: [] ,
+        colHeaders:   [],
+        columns:  []
       }
     },
     methods:{
@@ -48,14 +48,9 @@
     this.getConfig(function (data) {
       self.myData = data.data;
       self.colHeaders = data.colHeaders;
-      console.log(self.colHeaders)
       self.columns = data.columns;
     });
 
-    setInterval(function () {
-      self.configName = Date.now();
-      self.colHeaders = [1, Date.now()]
-    },1000)
     // this.colHeaders = ['123','123']
   },
     components:{
