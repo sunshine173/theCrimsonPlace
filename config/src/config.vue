@@ -75,7 +75,7 @@
         columnSorting: true,//排序
         stretchH: 'all',//根据宽度横向扩展，last:只扩展最后一列，none：默认不扩展
         afterChange: function (changes, source) { //数据改变时触发此方法
-          self.sourceData = this.getSourceData();
+          self.sourceData = this.getData();
           self.saveConfig();
       },
       };

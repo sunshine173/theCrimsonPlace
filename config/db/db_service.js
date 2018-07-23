@@ -6,6 +6,14 @@ exports.updateConfig = async function (config) {
   return await  query.exec().then().catch((err)=>{throw err;});
 };
 
+exports.createConfig = async function (config) {
+  if (!config.name || !config.type) throw new Error('参数错误');
+  let c = await module.exports.getConfig(config.name, config.type).catch(errHandler);
+  if (c) throw new Error('已存在');
+  let query = getConfigModel().updateOne({name:config.name, type:config.type}, {$set:config} ,{upsert:true});
+  return await  query.exec().then().catch((err)=>{throw err;});
+};
+
 exports.getConfig = async function (name, type) {
   let query = getConfigModel().findOne({name:name, type:type});
   return await query.exec().then().catch((err)=>{throw err;});

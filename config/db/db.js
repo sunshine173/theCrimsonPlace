@@ -7,7 +7,8 @@ let options = {
   connectTimeoutMS: 30000
 };
 let configSchema = mongoose.Schema({
-  name: {type:String,index: {unique: true, dropDups: true}},
+// {unique: true, dropDups: true}
+  name: {type:String,index: true},
   createTime:{type: Date, default: Date.now},
   updateTime:{type: Date, default: Date.now},
   //配置
