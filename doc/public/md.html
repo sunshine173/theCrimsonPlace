@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/markdown-it/8.3.1/markdown-it.min.js"></script>
+    <script>
+        var md = window.markdownit();
+        function onChange() {
+            console.log('-----');
+            document.getElementById('view').innerHTML = md.render(document.getElementById('editor').value);
+        }
+    </script>
+
+    <style>
+        #editor {
+            height:700px;
+            width:50%;
+            float:left;
+            padding:5px;
+        }
+        #view {
+            background-color:#eeeeee;
+            height:700px;
+            float:left;
+            padding:10px;
+        }
+    </style>
+    <title>Title</title>
+</head>
+<body style="height:100%;">
+
+<textarea id="editor" onkeyup="onChange()">
+</textarea>
+
+<div id="view">
+</div>
+
+</body>
+</html>

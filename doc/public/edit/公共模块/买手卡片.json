@@ -1,0 +1,50 @@
+{
+  "apiDescription": "买手卡片",
+  "path": "",
+  "apiGroup": "公共模块",
+  "method": "get",
+  "params": {},
+  "paramsDesc": {},
+  "success": {
+    "id": 20001501,
+    "avatarUrl": "http://p6.img.ymatou.com/G01/M00/08/7A/rBBlD1ZAUjSAZwwzAABIisYKckQ734_s.jpg",
+    "name": "Xiaolgms04",
+    "sellerLevel": "",
+    "level": 0,
+    "countryName": "日本",
+    "countryIconUrl": "http://img.ymatou.com/app/flag/circle/Japan.png",
+    "sellerDSR": {
+      "DSRPoint": {
+        "point": "--",
+        "type": 1
+      }
+    },
+    "isAttention": true,
+    "fansNum": 48,
+    "sellerFansNum": ""
+  },
+  "successDesc": {
+    "id": "买手id",
+    "avatarUrl": "买手头像url",
+    "name": "买手名字1",
+    "sellerLevel": "买手等级 只返回 TOP、Semi-Pro、Pro 其他不返回",
+    "level": "1:TOP (最顶级)\n2:Pro (专业买手)\n3:Semi-Pro(中级买手)\n不返回或其他返回就是初级买手",
+    "countryName": "买手国家名字",
+    "countryIconUrl": "买手国旗url",
+    "sellerDSR.DSRPoint.point": "买手综合评分 注意：这里是字符型的，没有分数的情况会返回空''",
+    "sellerDSR.DSRPoint.type": "分数显示颜色\n1:红色\n2:绿色\n3:黑色",
+    "isAttention": "用户是否已关注",
+    "fansNum": "买手具体粉丝数",
+    "sellerFansNum": "买手格式化的粉丝数\n粉丝数量>=10000时，单位转为k，k以下的直接去尾，例如10001和10100都显示10k；\n粉丝数量<10000时，直接显示具体的数字\n"
+  },
+  "group": "公共模块",
+  "apiName": "买手卡片",
+  "relyOn": [
+    [
+      "",
+      "",
+      "",
+      ""
+    ]
+  ]
+}

@@ -1,0 +1,67 @@
+{
+  "apiDescription": "6 根据sellerId搜索商品",
+  "apiName": "6 根据sellerId搜索商品",
+  "path": "http://app.ymatou.com/api/nodesearch/searchbysellerid",
+  "apiGroup": "search",
+  "apiPermission": "无",
+  "version": "1.0.0",
+  "method": "GET",
+  "apiUse": [
+    "apiHeader",
+    "apiError"
+  ],
+  "params": {
+    "keyword": 1,
+    "pagesize": 1,
+    "pageindex": 1,
+    "[countryid]": "string",
+    "[deliveryid]": "string"
+  },
+  "paramsDesc": {
+    "keyword": "买手id",
+    "pagesize": "一页多少数量",
+    "pageindex": "第几页 0代表第一页",
+    "[countryid]": "国家id, 不传代表全部",
+    "[deliveryid]": "物流id，不传代表全部"
+  },
+  "success": {
+    "list": [
+      {
+        "id": "string",
+        "name": "string",
+        "deliveryType": 1,
+        "price": 1,
+        "stock": 1,
+        "pic": "string",
+        "productType": "string",
+        "tariffType": 1,
+        "sellerInfo": {
+          "id": 1,
+          "name": "string",
+          "avatarUrl": "string",
+          "countryName": "string",
+          "countryIconUrl": "string"
+        }
+      }
+    ]
+  },
+  "successDesc": {
+    "list.0.id": "商品id",
+    "list.0.name": "商品名字",
+    "list.0.deliveryType": "配送方式\n0:未知\n1:国内快递\n2:海外直邮\n3:贝海直邮\n4:卖家保税\n5:贝海保税\n6:海外认证直邮\n7:海外拼邮",
+    "list.0.price": "商品价格 取得是所有价格里的最低价",
+    "list.0.stock": "库存",
+    "list.0.pic": "商品图片",
+    "list.0.productType": "商品类型，扫货还是现货\n1:扫货\n2:现货\n3:现货团商品",
+    "list.0.tariffType": "报税类型(包邮包税)\n0：不包邮不包税\n1:包邮\n2:包税\n3:包邮包税",
+    "list.0.sellerInfo.id": "买手id",
+    "list.0.sellerInfo.name": "买手名字",
+    "list.0.sellerInfo.avatarUrl": "买手头像url",
+    "list.0.sellerInfo.countryName": "国家名字",
+    "list.0.sellerInfo.countryIconUrl": "国家图标url"
+  },
+  "group": "search",
+  "versionList": [
+    "1.0.0"
+  ]
+}

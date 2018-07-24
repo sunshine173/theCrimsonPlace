@@ -1,0 +1,43 @@
+{
+  "apiDescription": "4 获取分类首页小分类位列表",
+  "apiName": "get smalllist",
+  "path": "nodesearch/assortment/smalllist",
+  "apiGroup": "assortment",
+  "apiPermission": "无",
+  "version": "1.0.0",
+  "method": "get",
+  "apiUse": [
+    "apiHeader",
+    "apiError"
+  ],
+  "params": {},
+  "paramsDesc": {},
+  "success": {
+    "categorySmall": {
+      "pages": 1,
+      "items": [
+        {
+          "theme": "分类名称",
+          "list": [
+            {
+              "id": 1000,
+              "title": "标题",
+              "pic": "图片",
+              "search": "搜索词",
+              "type": 1
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "successDesc": {
+    "categorySmall.pages": "总页数",
+    "categorySmall.items.0.theme": "分类名称",
+    "categorySmall.items.0.list.0.id": "编号",
+    "categorySmall.items.0.list.0.title": "标题",
+    "categorySmall.items.0.list.0.pic": "图片",
+    "categorySmall.items.0.list.0.search": "搜索词",
+    "categorySmall.items.0.list.0.type": "类型<br/>1-品类<br/>2-品牌<br/>3-标签"
+  }
+}

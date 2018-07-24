@@ -1,0 +1,181 @@
+<html>
+<head>
+    <link href="/css/style.css" rel="stylesheet" media="screen, print">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/js/client.js"></script>
+    <script src="/js/view.js"></script>
+    <script src="/js/edit.js"></script>
+    <script src="/js/table2json.js"></script>
+    <script src="/js/drag.js"></script>
+    <script src="/js/jsonToTableWithEdit.js"></script>
+    <script src="/js/foldList.js"></script>
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+    <script>
+        var enableEdit = false;
+        var bShowHeader = false;
+        var curTable;
+        var contentDiv, editSwitch, listDiv, editWindowDiv, headerSwitch;
+        var client;
+        var moduleInfo = {};
+        function onLoad() {
+            editSwitch = document.getElementById('editSwitch');
+            headerSwitch = document.getElementById('headerSwitch');
+            contentDiv = document.getElementById('content');
+            listDiv = document.getElementById("list");
+            editWindowDiv = document.getElementById('editWindow');
+            client = createClient(window.location.host);
+
+            editSwitch.onclick = function (event) {
+                enableEdit = editSwitch.innerText == '开启编辑';
+                if (!enableEdit) saveEdit();
+                editSwitch.innerText = enableEdit ? '保存' : "开启编辑";
+                if (contentDiv.info.group == '公共模块') drawModule(contentDiv.info);
+                else drawContent(contentDiv.info);
+            };
+
+            headerSwitch.onclick = function (event) {
+                bShowHeader = headerSwitch.innerText == '显示header';
+                headerSwitch.innerText = bShowHeader ? '隐藏header' : '显示header';
+                if (contentDiv.info.group == '公共模块') drawModule(contentDiv.info);
+                else drawContent(contentDiv.info);
+            }
+        }
+
+        function saveEdit() {
+            //遍历content，保存数据
+            var content = document.getElementById('content');
+            var pathDiv = document.getElementById('path');
+            var methodDiv = document.getElementsByClassName('method');
+            var nodeList = content.childNodes;
+            var info = content.info;
+            if (pathDiv) info.path = pathDiv.innerText;
+            if (methodDiv[0]) info.method = methodDiv[0].innerText;
+            for (var i = 0; i < nodeList.length; i++) {
+                var item = nodeList.item(i);
+                if (item.tagName == 'TABLE' && item.id != 'relyOn') {
+                    var tableJson = tableToJson(item, item.className, info.moduleInfo);
+                    info[item.className] = tableJson.retInfo;
+                    info[item.className + 'Desc'] = tableJson.descObj;
+                }
+            }
+            info.relyOn = normalTableToArr(document.getElementById('relyOn'));
+            client.send({method: 'saveEdit', params: info});
+        }
+
+        function selectDoc(li) {
+            editWindowDiv.style.display = "none";
+            //读取内容
+            var apis = document.getElementsByClassName('api');
+            for (var i = 0; i < apis.length; i++) {
+                apis[i].id = 'api';
+            }
+            apis = document.getElementsByClassName('apiNew');
+            for (i = 0; i < apis.length; i++) {
+                apis[i].id = 'apiNew list-group-item';
+            }
+            li.id = 'currentApi';
+            var subGroup = li.subGroup;
+            console.log('----send')
+            window.location.hash = '#' + li.group + (subGroup ? '->' + subGroup : '') + '->' + li.api;
+            if (li.group == '公共模块') client.send({method: 'getDocContentModule', params: [li.group, li.api]});
+            else client.send({method: 'getDocContent', params: [li.group, subGroup, li.api]});
+        }
+
+        Dragging(function (mouseEvent) {
+            if (mouseEvent.target.id == 'editTitle') {
+                return document.getElementById('editWindow');
+            }
+            if (mouseEvent.target.id == 'createApiDiv') {
+                return document.getElementById('createApiDiv');
+            }
+        }).enable();
+    </script>
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="//cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="//cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="js/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+    <link href="css/style.css" rel="stylesheet">
+</head>
+<body onload="onLoad()">
+<div class="btn-group pull-right clearfix">
+    <a class="btn btn-primary" role="button" id="editNew" data-toggle="modal" data-target="#createApiDiv">新建</a>
+    <a class="btn btn-danger" role="button" id="editDel" onclick="delApi()">删除</a>
+    <a class="btn btn-warning" role="button" id="editSwitch">开启编辑</a>
+    <a class="btn btn-info" role="button" id="headerSwitch">显示header</a>
+    <div class="input-group" style="width: 300px;">
+        <input id="searchInput" type="text" class="form-control" placeholder="请输入关键字" onkeypress="search()" oninput="search()">
+        <span class="input-group-btn">
+        <button class="btn btn-default" type="button" onclick="search()">Go!</button>
+      </span>
+    </div>
+    <div id="searchResult" class="pull-right" style="position: absolute; width: 250px; top:20px ; right: 50px; margin: 0;padding: 0;">
+
+    </div>
+    <!--<a id="editModule" href="http://localhost:8080/module.html" style="position: absolute;right:30px;top:45px;cursor:pointer;">编辑公共模块</a>-->
+</div>
+<div id='list' class="list-group"></div>
+<div id='content' class="content"></div>
+<div id='editWindow' class="editWindow">
+</div>
+<div id="createApiDiv" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                        aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">新建</h4>
+            </div>
+            <div class="form-horizontal">
+                <div class="form-group">
+                    <label for="groupNameInput" class="col-sm-2 control-label">api分类</label>
+                    <div class="col-sm-10">
+                        <input type="email" class="form-control" id="groupNameInput" placeholder="api分类">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="apiNameInput" class="col-sm-2 control-label">名字</label>
+                    <div class="col-sm-10">
+                        <input type="email" class="form-control" id="apiNameInput" placeholder="api名字">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="versionInput" class="col-sm-2 control-label">版本号</label>
+                    <div class="col-sm-10">
+                        <input type="email" class="form-control" id="versionInput" placeholder="api版本号" value="1.0.0">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="subGroupNameInput" class="col-sm-2 control-label">二级分类</label>
+                    <div class="col-sm-10">
+                        <input type="email" class="form-control" id="subGroupNameInput" placeholder="api二级分类">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10">
+                        <div class="checkbox">
+                            <label>
+                                <input id="copyCurInfo" type="checkbox">从当前文档拷贝
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="createApi()">新建</button>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

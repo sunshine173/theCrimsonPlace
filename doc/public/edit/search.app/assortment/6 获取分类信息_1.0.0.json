@@ -1,0 +1,41 @@
+{
+  "apiDescription": "6 获取分类信息",
+  "apiName": "get categoryinfo",
+  "path": "nodesearch/assortment/categoryinfo",
+  "apiGroup": "assortment",
+  "apiPermission": "无",
+  "version": "1.0.0",
+  "method": "get",
+  "apiUse": [
+    "apiHeader",
+    "apiError"
+  ],
+  "params": {
+    "categoryid": 1
+  },
+  "paramsDesc": {
+    "categoryid": "分类页接口返回的分类id"
+  },
+  "success": {
+    "name": "品类名称",
+    "desc": "品牌描述",
+    "enDesc": "品牌英文描述",
+    "subList": [
+      {
+        "id": 1000,
+        "name": "品类名称",
+        "pic": "品类图片",
+        "type": 1
+      }
+    ]
+  },
+  "successDesc": {
+    "name": "品类名称",
+    "desc": "品牌描述",
+    "enDesc": "品牌英文描述",
+    "subList.0.id": "编号",
+    "subList.0.name": "品类名称",
+    "subList.0.pic": "图片",
+    "subList.0.type": "类型<br/>1-品类<br/>2-品牌<br/>3-标签"
+  }
+}

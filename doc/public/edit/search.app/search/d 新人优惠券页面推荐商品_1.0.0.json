@@ -1,0 +1,51 @@
+{
+  "apiDescription": "c 新人优惠券页面推荐商品",
+  "apiName": "d 新人优惠券页面推荐商品",
+  "path": "http://app.ymatou.com/api/nodesearch/couponrecommendprods",
+  "apiGroup": "search",
+  "apiPermission": "无",
+  "version": "1.0.0",
+  "method": "get",
+  "apiUse": [
+    "apiHeader",
+    "apiError"
+  ],
+  "params": {
+    "pagesize": 1,
+    "pageindex": 1
+  },
+  "paramsDesc": {
+    "pagesize": "商品数量",
+    "pageindex": "页码 0=第一页"
+  },
+  "success": {
+    "list": [
+      {
+        "productId": "string",
+        "productName": "string",
+        "pic": "string",
+        "country": "string",
+        "countryIcon": "string",
+        "price": 1,
+        "productType": 1,
+        "restTime": "string",
+        "stock": 1
+      }
+    ]
+  },
+  "successDesc": {
+    "list.0.productId": "商品id",
+    "list.0.productName": "商品名字",
+    "list.0.pic": "商品图片",
+    "list.0.country": "商品国家",
+    "list.0.countryIcon": "商品国家icon",
+    "list.0.price": "价格",
+    "list.0.productType": "商品类型，扫货还是现货\n1:扫货\n2:现货\n3:现货团商品",
+    "list.0.restTime": "直播剩余时间",
+    "list.0.stock": "库存数量"
+  },
+  "group": "search",
+  "versionList": [
+    "1.0.0"
+  ]
+}

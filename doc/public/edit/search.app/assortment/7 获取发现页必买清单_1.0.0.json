@@ -1,0 +1,116 @@
+{
+  "apiDescription": "7 获取发现页必买清单",
+  "apiName": "7 获取发现页必买清单",
+  "path": "http://app.ymatou.com/api/nodesearch/assortment/topiclist",
+  "apiGroup": "search.app",
+  "apiPermission": "无",
+  "version": "1.0.0",
+  "method": "GET",
+  "apiUse": [
+    "apiHeader",
+    "apiError"
+  ],
+  "params": {
+    "pageindex\n": 1
+  },
+  "paramsDesc": {
+    "pageindex\n": "页码"
+  },
+  "success": {
+    "total": 1992,
+    "pageCount": 200,
+    "list": [
+      {
+        "id": 1001788,
+        "theme": "让性感“露”得恰到好处",
+        "products": 32,
+        "users": 1,
+        "list": [
+          {
+            "id": "8c18fdea-20cc-4d58-96c4-2cb794ca770b",
+            "price": 389,
+            "pic": "http://p4.img.ymatou.com/upload/product/original/489a2ff7a65f40f593803d540da6a8e7_o.jpg"
+          }
+        ],
+        "follow": false,
+        "topicType": 106
+      }
+    ]
+  },
+  "successDesc": {
+    "total": "总数",
+    "pageCount": "总页码",
+    "list.0.id": "topicid",
+    "list.0.theme": "名称",
+    "list.0.products": "商品数",
+    "list.0.users": "来自买手数",
+    "list.0.list.0.id": "商品id",
+    "list.0.list.0.price": "商品价格",
+    "list.0.list.0.pic": "商品图片",
+    "list.0.follow": "是否关注",
+    "list.0.topicType": "topic类型"
+  },
+  "group": "search.app",
+  "subGroup": "assortment",
+  "versionList": [
+    "1.0.0"
+  ],
+  "header": [
+    [
+      "accept-version",
+      "String",
+      "服务端版本号"
+    ],
+    [
+      "accept-key",
+      "String",
+      "服务端分配的调用方唯一名称代码"
+    ],
+    [
+      "app-version",
+      "String",
+      "客户端版本号"
+    ],
+    [
+      "deviceid",
+      "String",
+      "唯一设备号"
+    ],
+    [
+      "timestamp",
+      "String",
+      "时间戳(单位毫秒)"
+    ],
+    [
+      "sign",
+      "String",
+      "签名"
+    ],
+    [
+      "ymt-pars",
+      "String",
+      "需要登录权限的接口需要在这里传userid和accesstoken\naccesstoken: 登录令牌\nformat: api结果的响应格式,xml,json,jsonp\nidfa: ios的IDFA\nimei: android的IMEI\nnetwork: 网络,wifi,3g,4g\nclient: 客户端，ios,android,h5\ntype: app类型,buyer,seller\nchannel: 渠道\nos: 客户端操作系统\nuserid: 用户UserID\nyid:搜索所需yid\neg:accesstoken=0&format=json&idfa=1&imei=2&network=wifi&client=ios&type=buyer&channel=appstore&os=ios9.1&userid=123456&yid"
+    ]
+  ],
+  "relyOn": [
+    [
+      "发现频道商品Topic列表下拉翻页\n",
+      " 刘鸿鹏\n",
+      "topicrecbizer.iapi.ymatou.com/topic/productscolllist",
+      "wiki.ymatou.cn:8090/pages/viewpage.action?pageId=21004923"
+    ],
+    [
+      "其他是否已关注",
+      "曹瑞",
+      "relation.app.ymatou.com/api/UserAttent/GetUserAttentIsExistsByTypeAndIdsAsync",
+      ""
+    ],
+    [
+      "",
+      "",
+      "",
+      ""
+    ]
+  ],
+  "apiSubGroup": "assortment"
+}

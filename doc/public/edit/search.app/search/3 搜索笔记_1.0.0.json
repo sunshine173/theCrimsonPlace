@@ -1,0 +1,118 @@
+{
+  "apiDescription": "3 搜索笔记",
+  "apiName": "3 搜索笔记",
+  "path": "http://app.ymatou.com/api/nodesearch/note",
+  "apiGroup": "search",
+  "apiPermission": "无",
+  "version": "1.0.0",
+  "method": "GET",
+  "apiUse": [
+    "apiHeader",
+    "apiError"
+  ],
+  "params": {
+    "keyword": "string",
+    "pagesize": 1,
+    "pageindex": 1
+  },
+  "paramsDesc": {
+    "keyword": "搜索的关键字 '日本 人民币'这个关键字有数据",
+    "pagesize": "一页多少数量",
+    "pageindex": "第几页 0代表第一页"
+  },
+  "success": {
+    "list": [
+      {
+        "id": "笔记id",
+        "description": "笔记描述",
+        "avatarUrl": "用户头像url",
+        "picUrl": "笔记第一张图片url",
+        "label": "用户【自定义标签】里的第一个标签",
+        "nickName": "用户名字",
+        "noteSource": "笔记来源<br/>0：买家添加<br/>1：历史数据 <br/>2：运营添加 <br/>3：买手添加",
+        "favoriteCount": 1,
+        "url": "string"
+      }
+    ]
+  },
+  "successDesc": {
+    "list.0.id": "笔记id",
+    "list.0.description": "笔记描述",
+    "list.0.avatarUrl": "用户头像url",
+    "list.0.picUrl": "笔记第一张图片url",
+    "list.0.label": "用户【自定义标签】里的第一个标签",
+    "list.0.nickName": "用户名字",
+    "list.0.noteSource": "笔记来源\n0：买家添加\n1：历史数据 \n2：运营添加 \n3：买手添加",
+    "list.0.favoriteCount": "被喜欢数量，注意不是被收藏数量",
+    "list.0.url": "笔记详情页跳转地址",
+    "list.0.": ""
+  },
+  "group": "search.app",
+  "versionList": [
+    "1.0.0"
+  ],
+  "relyOn": [
+    [
+      "分页搜索笔记列表\n",
+      "汪洋",
+      "http://socialbizer.ymatou.com:4170/search/categorypage\n",
+      ""
+    ],
+    [
+      "获取笔记是否喜欢的状态\n",
+      "田中海",
+      "http://relation.app.ymatou.com/api/Favorite/GetMyFavNoteIdList\n",
+      ""
+    ],
+    [
+      "获取笔记详情",
+      "田中海",
+      "http://api.social.ymatou.com/api/socialinner/GetCollectNoteList\n",
+      ""
+    ],
+    [
+      "获取买家、买手头像\n",
+      "钟伟",
+      "http://userservice.ymatou.com/json/reply/UserLogoRequestDto\n",
+      ""
+    ]
+  ],
+  "subGroup": "search",
+  "header": [
+    [
+      "accept-version",
+      "String",
+      "服务端版本号"
+    ],
+    [
+      "accept-key",
+      "String",
+      "服务端分配的调用方唯一名称代码"
+    ],
+    [
+      "app-version",
+      "String",
+      "客户端版本号"
+    ],
+    [
+      "deviceid",
+      "String",
+      "唯一设备号"
+    ],
+    [
+      "timestamp",
+      "String",
+      "时间戳(单位毫秒)"
+    ],
+    [
+      "sign",
+      "String",
+      "签名"
+    ],
+    [
+      "ymt-pars",
+      "String",
+      "需要登录权限的接口需要在这里传userid和accesstoken\naccesstoken: 登录令牌\nformat: api结果的响应格式,xml,json,jsonp\nidfa: ios的IDFA\nimei: android的IMEI\nnetwork: 网络,wifi,3g,4g\nclient: 客户端，ios,android,h5\ntype: app类型,buyer,seller\nchannel: 渠道\nos: 客户端操作系统\nuserid: 用户UserID\nyid:搜索所需yid\neg:accesstoken=0&format=json&idfa=1&imei=2&network=wifi&client=ios&type=buyer&channel=appstore&os=ios9.1&userid=123456&yid"
+    ]
+  ]
+}

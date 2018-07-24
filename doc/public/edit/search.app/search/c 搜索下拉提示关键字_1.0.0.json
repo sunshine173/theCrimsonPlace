@@ -1,0 +1,27 @@
+{
+  "apiDescription": "c 搜索下拉提示关键字",
+  "apiName": "get search keywords list",
+  "path": "nodesearch/suggestwords",
+  "apiGroup": "search",
+  "apiPermission": "无",
+  "version": "1.0.0",
+  "method": "get",
+  "apiUse": [
+    "apiHeader",
+    "apiError"
+  ],
+  "params": {
+    "keyword": "",
+    "[pagesize]": 1
+  },
+  "paramsDesc": {
+    "keyword": "搜索的关键字",
+    "[pagesize]": "返回几个关键字，不传返回10个"
+  },
+  "success": {
+    "list": [
+      ""
+    ]
+  },
+  "successDesc": {}
+}

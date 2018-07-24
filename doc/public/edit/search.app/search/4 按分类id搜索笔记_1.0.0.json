@@ -1,0 +1,46 @@
+{
+  "apiDescription": "4 按分类id搜索笔记",
+  "apiName": "get search note list page by id",
+  "path": "nodesearch/notebyid",
+  "apiGroup": "search",
+  "apiPermission": "无",
+  "version": "1.0.0",
+  "method": "get",
+  "apiUse": [
+    "apiHeader",
+    "apiError"
+  ],
+  "params": {
+    "keyword": "",
+    "pagesize": 1,
+    "pageindex": 1
+  },
+  "paramsDesc": {
+    "pagesize": "一页多少数量",
+    "pageindex": "第几页 0代表第一页"
+  },
+  "success": {
+    "list": [
+      {
+        "id": "笔记id",
+        "description": "笔记描述",
+        "avatarUrl": "用户头像url",
+        "picUrl": "笔记第一张图片url",
+        "label": "用户【自定义标签】里的第一个标签",
+        "nickName": "用户名字",
+        "noteSource": "笔记来源<br/>0：买家添加<br/>1：历史数据 <br/>2：运营添加 <br/>3：买手添加",
+        "favoriteCount": 1
+      }
+    ]
+  },
+  "successDesc": {
+    "list.0.id": "笔记id",
+    "list.0.description": "笔记描述",
+    "list.0.avatarUrl": "用户头像url",
+    "list.0.picUrl": "笔记第一张图片url",
+    "list.0.label": "用户【自定义标签】里的第一个标签",
+    "list.0.nickName": "用户名字",
+    "list.0.noteSource": "笔记来源<br/>0：买家添加<br/>1：历史数据 <br/>2：运营添加 <br/>3：买手添加",
+    "list.0.favoriteCount": "被喜欢数量，注意不是被收藏数量"
+  }
+}

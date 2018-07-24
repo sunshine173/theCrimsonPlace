@@ -1,0 +1,243 @@
+{
+  "apiDescription": "e 获取笔记发布时关联品牌",
+  "apiName": "e 获取笔记发布时关联品牌",
+  "path": "http://app.ymatou.com/api/nodesearch/suggestbrands",
+  "apiGroup": "search.app",
+  "apiPermission": "无",
+  "version": "1.0.0",
+  "method": "GET",
+  "apiUse": [
+    "apiHeader",
+    "apiError"
+  ],
+  "params": {
+    "keyword": ""
+  },
+  "paramsDesc": {
+    "keyword": "搜索的关键字， 返回50个",
+    "": ""
+  },
+  "success": {
+    "list": [
+      {
+        "name": "品牌中文名",
+        "id": "品牌id",
+        "enName": "品牌英文名"
+      }
+    ]
+  },
+  "successDesc": {
+    "list.0.name": "品牌中文名",
+    "list.0.id": "品牌id",
+    "list.0.enName": "品牌英文名"
+  },
+  "group": "search.app",
+  "subGroup": "search",
+  "versionList": [
+    "1.0.0"
+  ],
+  "header": [
+    [
+      "accept-version",
+      "String",
+      "服务端版本号"
+    ],
+    [
+      "accept-key",
+      "String",
+      "服务端分配的调用方唯一名称代码"
+    ],
+    [
+      "app-version",
+      "String",
+      "客户端版本号"
+    ],
+    [
+      "deviceid",
+      "String",
+      "唯一设备号"
+    ],
+    [
+      "timestamp",
+      "String",
+      "时间戳(单位毫秒)"
+    ],
+    [
+      "sign",
+      "String",
+      "签名"
+    ],
+    [
+      "ymt-pars",
+      "String",
+      "需要登录权限的接口需要在这里传userid和accesstoken\naccesstoken: 登录令牌\nformat: api结果的响应格式,xml,json,jsonp\nidfa: ios的IDFA\nimei: android的IMEI\nnetwork: 网络,wifi,3g,4g\nclient: 客户端，ios,android,h5\ntype: app类型,buyer,seller\nchannel: 渠道\nos: 客户端操作系统\nuserid: 用户UserID\nyid:搜索所需yid\neg:accesstoken=0&format=json&idfa=1&imei=2&network=wifi&client=ios&type=buyer&channel=appstore&os=ios9.1&userid=123456&yid"
+    ]
+  ],
+  "relyOn": [
+    [
+      "Suggest 品牌类目前缀搜索\n",
+      "皮勇泽",
+      "  suggestbizer.ymatou.com:2150/search/prebrand",
+      "wiki.ymatou.cn:8090/pages/viewpage.action?pageId=21004733"
+    ],
+    [
+      "",
+      "",
+      "",
+      ""
+    ],
+    [
+      "",
+      "",
+      "",
+      ""
+    ]
+  ],
+  "apiSubGroup": "search",
+  "moduleInfo": {
+    "公共模块->买手卡片": {
+      "apiDescription": "买手卡片",
+      "path": "",
+      "apiGroup": "公共模块",
+      "method": "get",
+      "params": {},
+      "paramsDesc": {},
+      "success": {
+        "id": 20001501,
+        "avatarUrl": "http://p6.img.ymatou.com/G01/M00/08/7A/rBBlD1ZAUjSAZwwzAABIisYKckQ734_s.jpg",
+        "name": "Xiaolgms04",
+        "sellerLevel": "",
+        "level": 0,
+        "countryName": "日本",
+        "countryIconUrl": "http://img.ymatou.com/app/flag/circle/Japan.png",
+        "sellerDSR": {
+          "DSRPoint": {
+            "point": "--",
+            "type": 1
+          }
+        },
+        "isAttention": true,
+        "fansNum": 48,
+        "sellerFansNum": ""
+      },
+      "successDesc": {
+        "id": "买手id",
+        "avatarUrl": "买手头像url",
+        "name": "买手名字",
+        "sellerLevel": "买手等级 只返回 TOP、Semi-Pro、Pro 其他不返回",
+        "level": "0:未知\n1:TOP (最顶级)\n2:Pro (专业买手)\n3:Semi-Pro(初级买手)\n4:Active\n5:Newbie",
+        "countryName": "买手国家名字",
+        "countryIconUrl": "买手国旗url",
+        "sellerDSR.DSRPoint.point": "买手综合评分 注意：这里是字符型的，可能为--",
+        "sellerDSR.DSRPoint.type": "分数显示颜色\n1:红色\n2:绿色\n3:黑色",
+        "isAttention": "用户是否已关注",
+        "fansNum": "买手具体粉丝数",
+        "sellerFansNum": "买手格式化的粉丝数\n粉丝数量>=10000时，单位转为k，k以下的直接去尾，例如10001和10100都显示10k；\n粉丝数量<10000时，直接显示具体的数字\n"
+      },
+      "group": "公共模块",
+      "apiName": "买手卡片",
+      "relyOn": [
+        [
+          "",
+          "",
+          "",
+          ""
+        ]
+      ]
+    },
+    "公共模块->商品卡片": {
+      "apiDescription": "商品卡片",
+      "path": "",
+      "apiGroup": "公共模块",
+      "method": "get",
+      "params": {},
+      "paramsDesc": {},
+      "success": {
+        "id": "4cbf26db-3eb5-4100-a44b-fc99c4d4d0a3",
+        "name": "【SKU-多规格】~新客价，VIP价：天阶夜色凉如水 ，坐看牵牛织女。迢迢牵牛星，皎皎河汉女~~~",
+        "state": 1,
+        "deliveryType": 6,
+        "price": 5,
+        "originalPrice": 1,
+        "stock": 136,
+        "stockDesc": "string",
+        "pic": "http://pc4.img.ymatou.com/G01/shangou/M00/10/B8/rBBlD1dPu5eAE2PwAACo_HjiPvc538_w_lb.jpg",
+        "productType": "商品类型，扫货还是现货<br/>1:扫货<br/>2:现货<br/>3:现货团商品",
+        "tariffType": 1,
+        "promotionType": 1,
+        "sellerInfo": {
+          "id": 483838,
+          "name": "麦兜兜heidi",
+          "avatarUrl": "http://p4.img.ymatou.com/upload/userlogo/original/483838_21db8318aa3e4b7c89cf3db2224e2795_o.jpg",
+          "countryName": "美国",
+          "countryIconUrl": "http://img.ymatou.com/app/flag/circle/America.png",
+          "sellerLevel": "string",
+          "level": 1,
+          "sellerDSR": {
+            "DSRPoint": {
+              "point": "4.32",
+              "type": 1
+            }
+          }
+        }
+      },
+      "successDesc": {
+        "id": "商品id.",
+        "name": "商品名称",
+        "state": "商品状态\n0:正常\n1:已售罄\n2:已下架\n3:已过期",
+        "deliveryType": "配送方式\n0:未知\n1:国内快递\n2:海外直邮\n3:贝海直邮\n4:卖家保税\n5:贝海保税\n6:海外认证直邮\n7:海外拼邮",
+        "price": "商品价格 取得是所有价格里的最低价",
+        "originalPrice": "原价",
+        "stock": "库存",
+        "stockDesc": "当库存小于等于5 大于0时返回，例：仅剩3件",
+        "pic": "商品图片",
+        "productType": "商品类型，扫货还是现货\n0:正常商品\n1:直播商品\n2:现货\n3:现货团商品",
+        "tariffType": "报税类型(包邮包税)\n0:不包邮不包税\n1:包邮\n2:包税\n3:包邮包税",
+        "promotionType": "促销策略\n1：满件减 (商品卡片显示->买手促销)\n2：满件折 (商品卡片显示->买手促销)\n3：满金额减 (商品卡片显示->买手促销)\n4：满金额折(商品卡片显示->买手促销)",
+        "sellerInfo.id": "买手id",
+        "sellerInfo.name": "买手名字",
+        "sellerInfo.avatarUrl": "买手头像url",
+        "sellerInfo.countryName": "买手国家名字",
+        "sellerInfo.countryIconUrl": "买手国旗url",
+        "sellerInfo.sellerLevel": "买手等级 只返回 TOP、Semi-Pro、Pro 其他不返回",
+        "sellerInfo.level": "0:未知\n1:TOP (最顶级)\n2:Pro (专业买手)\n3:Semi-Pro(初级买手)\n4:Active\n5:Newbie",
+        "sellerInfo.sellerDSR.DSRPoint.point": "买手综合评分 注意：这里是字符型的，可能为--",
+        "sellerInfo.sellerDSR.DSRPoint.type": "分数显示颜色\n1:红色\n2:绿色\n3:黑色"
+      },
+      "group": "公共模块",
+      "apiName": "商品卡片",
+      "relyOn": [
+        [
+          "获取商品信息服务",
+          "祝金峰",
+          "productlist.iapi.ymatou.com/api/Product/GetProductListByProductIdList\n",
+          ""
+        ],
+        [
+          "获取商品价格服务",
+          "祝金峰",
+          "price.iapi.ymatou.com/api/Product/GetProductPriceListByProductIdList",
+          ""
+        ],
+        [
+          "获取买手信息",
+          "章惠都",
+          "sellerinfo.iapi.ymatou.com/api/QuerySellerInfo/GetSellerInfos",
+          ""
+        ],
+        [
+          "获取促销信息 满减、满折",
+          "刘宏",
+          "sellerpromotion.api.ymatou.com/api/promotion/GetPromotionByProductIds",
+          "wiki.ymatou.cn:8090/pages/viewpage.action?pageId=18910490"
+        ],
+        [
+          "",
+          "",
+          "",
+          ""
+        ]
+      ]
+    }
+  }
+}

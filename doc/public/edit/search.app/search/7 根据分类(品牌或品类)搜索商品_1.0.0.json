@@ -1,0 +1,169 @@
+{
+  "apiDescription": "7 根据分类(品牌或品类)搜索商品",
+  "apiName": "7 根据分类(品牌或品类)搜索商品",
+  "path": "http://app.ymatou.com/api/nodesearch/prodbyassortment",
+  "apiGroup": "search",
+  "apiPermission": "无",
+  "version": "1.0.0",
+  "method": "GET",
+  "apiUse": [
+    "apiHeader",
+    "apiError"
+  ],
+  "params": {
+    "keyword": "string",
+    "assortmenttype": 1,
+    "countryid<code>可选</code>": "string",
+    "deliveryid<code>可选</code>": "string",
+    "pagesize<code>可选</code>": 1
+  },
+  "paramsDesc": {
+    "keyword": "要搜索的关键字， 品牌id、品类id、标签id、品牌名+空格+标签名",
+    "assortmenttype": "类型 \n1:品类\n2:品牌\n3:标签\n4:品牌名+空格+标签名",
+    "countryid<code>可选</code>": "国家id",
+    "deliveryid<code>可选</code>": "物流id",
+    "pagesize<code>可选</code>": "返回多少个商品, 默认返回10个"
+  },
+  "success": {
+    "brandDesc": "品牌描述",
+    "brandId": "string",
+    "title": "string",
+    "assortmentType": 1,
+    "type": 110,
+    "isAttention": "是否已关注",
+    "assortmentList": [
+      {
+        "id": 30,
+        "name": "休闲鞋",
+        "pic": "http://p5.img.ymatou.com/upload/product/small/90ed8c6707d64952b2d240ed1a377afb_s.jpg",
+        "type": 101,
+        "assortmentType": 3
+      }
+    ],
+    "noteCount": 1,
+    "prodCount": 1,
+    "beAttentionCount": 1,
+    "deliveryList": [
+      {
+        "deliveryId": 1,
+        "description": "string"
+      }
+    ],
+    "countryList": [
+      {
+        "countryId": "string",
+        "countryName": "string",
+        "flag": "string"
+      }
+    ],
+    "prodList": [
+      {
+        "id": "4cbf26db-3eb5-4100-a44b-fc99c4d4d0a3",
+        "name": "【SKU-多规格】~新客价，VIP价：天阶夜色凉如水 ，坐看牵牛织女。迢迢牵牛星，皎皎河汉女~~~",
+        "deliveryType": 6,
+        "price": 5,
+        "stock": 136,
+        "pic": "http://pc4.img.ymatou.com/G01/shangou/M00/10/B8/rBBlD1dPu5eAE2PwAACo_HjiPvc538_w_lb.jpg",
+        "productType": "商品类型，扫货还是现货<br/>1:扫货<br/>2:现货<br/>3:现货团商品",
+        "tariffType": 1,
+        "sellerInfo": {
+          "id": 483838,
+          "name": "麦兜兜heidi",
+          "avatarUrl": "http://p4.img.ymatou.com/upload/userlogo/original/483838_21db8318aa3e4b7c89cf3db2224e2795_o.jpg",
+          "countryName": "美国",
+          "countryIconUrl": "http://img.ymatou.com/app/flag/circle/America.png"
+        }
+      }
+    ]
+  },
+  "successDesc": {
+    "brandDesc": "品牌描述",
+    "brandId": "品牌id 只是关注用",
+    "title": "这里返回 品牌名字、分类名字、标签名字、品牌名+空格+标签名",
+    "assortmentType": "分类类型 \n1:品类\n2:品牌\n3:标签\n4:品牌名+空格+标签名",
+    "type": "关注对象的类型 \n100.买手\n101.买家\n102.品牌\n103.品类\n104.活动话题\n105.运营推荐话题\n106.运营主题\n107.买家创建的主题\n108 运营笔记主题\n109 分类标签\n110 品牌标签组合",
+    "isAttention": "是否已关注",
+    "assortmentList.0.id": "分类id",
+    "assortmentList.0.name": "分类名称",
+    "assortmentList.0.pic": "分类图片",
+    "assortmentList.0.type": "关注对象的类型 \n100.买手\n101.买家\n102.品牌\n103.品类\n104.活动话题\n105.运营推荐话题\n106.运营主题\n107.买家创建的主题\n108 运营笔记主题\n109 分类标签\n110 品牌标签组合",
+    "assortmentList.0.assortmentType": "分类类型 \n1:品类\n2:品牌\n3:标签\n4:品牌名+空格+标签名",
+    "noteCount": "相关笔记数量",
+    "prodCount": "商品数量",
+    "beAttentionCount": "被关注数量",
+    "deliveryList.0.deliveryId": "配送方式\n0:未知\n1:国内快递\n2:海外直邮\n3:贝海直邮\n4:卖家保税\n5:贝海保税\n6:海外认证直邮\n7:海外拼邮",
+    "deliveryList.0.description": "物流描述 在物流文字后面显示文字标识 例:官方",
+    "countryList.0.countryId": "国家id",
+    "countryList.0.countryName": "国家中文名",
+    "countryList.0.flag": "国家国旗url",
+    "prodList.0.id": "笔记id",
+    "prodList.0.name": "国家名字",
+    "prodList.0.deliveryType": "配送方式\n0:未知\n1:国内快递\n2:海外直邮\n3:贝海直邮\n4:卖家保税\n5:贝海保税\n6:海外认证直邮\n7:海外拼邮",
+    "prodList.0.price": "商品价格 取得是所有价格里的最低价",
+    "prodList.0.stock": "库存",
+    "prodList.0.pic": "商品图片",
+    "prodList.0.productType": "商品类型，扫货还是现货\n1:扫货\n2:现货\n3:现货团商品",
+    "prodList.0.tariffType": "报税类型(包邮包税)\n0：不包邮不包税\n1:包邮\n2:包税\n3:包邮包税",
+    "prodList.0.sellerInfo.id": "商品id",
+    "prodList.0.sellerInfo.name": "商品名字",
+    "prodList.0.sellerInfo.avatarUrl": "买手头像url",
+    "prodList.0.sellerInfo.countryName": "国家中文名",
+    "prodList.0.sellerInfo.countryIconUrl": "买手国家国旗url"
+  },
+  "group": "search",
+  "versionList": [
+    "1.0.0"
+  ],
+  "relyOn": [
+    [
+      "获取分类信息\n",
+      "许秀雷",
+      "http://misc.iapi.ymatou.com/api/category/getcategoryinfo\n"
+    ],
+    [
+      "搜索关键词相关笔记数量\n",
+      "汪洋",
+      "http://socialbizer.ymatou.com:4170/search/categorypage"
+    ],
+    [
+      "获取笔记分类id的笔记数\n",
+      "汪洋",
+      "http://socialbizer.ymatou.com:4170/search/categorypage\n"
+    ],
+    [
+      "是否关注\n",
+      "曹瑞",
+      "http://relation.app.ymatou.com/api/UserAttent/GetUserAttentIsExistsByTypeAndIdsAsync\n"
+    ],
+    [
+      "获取被关注数量\n",
+      "陈宇",
+      "http://relation.app.ymatou.com/api/UserAttent/GetBeAttentCountBySourcesAsync\n"
+    ],
+    [
+      "按分类id搜商品\n",
+      "皮勇泽",
+      "http://keyword.app.iapi.ymatou.com:3350/search/tagkeyword\n"
+    ],
+    [
+      "获取国家详情",
+      "许秀雷",
+      "http://misc.iapi.ymatou.com/api/country/getcountrylist"
+    ],
+    [
+      "获取商品信息服务",
+      "祝金峰",
+      "http://productlist.iapi.ymatou.com/api/Product/GetProductListByProductIdList"
+    ],
+    [
+      "获取商品价格服务",
+      "祝金峰",
+      "http://price.iapi.ymatou.com/api/Product/GetProductPriceListByProductIdList"
+    ],
+    [
+      "获取买手信息",
+      "章惠都",
+      "http://sellerinfo.iapi.ymatou.com/api/QuerySellerInfo/GetSellerInfos"
+    ]
+  ]
+}

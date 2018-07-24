@@ -1,0 +1,74 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="/css/style.css" rel="stylesheet" media="screen, print">
+    <title>Title</title>
+    <script src="/js/jsonToTableWithEdit.js"></script>
+</head>
+<body style="overflow:auto;">
+    打点内容
+    <div>
+    <textarea id="jsonInput" contenteditable="true" style="width:100%; height: 200px; border: #e0e0e0 1px solid;overflow:auto;" oninput="transform()">
+    </textarea>
+    </div>
+    biz_param,换行间隔
+    <div id="paramsKey" contenteditable="true" style="height: 100px; border: #e0e0e0 1px solid;overflow:auto;" oninput="transform()">
+
+    </div>
+    <div id="content">
+
+    </div>
+</body>
+
+<script>
+    function transform() {
+        var input = document.getElementById('jsonInput').value;
+        var content = document.getElementById('content');
+        var paramsKeys = document.getElementById('paramsKey').innerText.split('\n');
+
+        try {
+            var obj = eval(input);
+            var arr = [];
+            var map = {};
+            obj.forEach(function (info) {
+                if (!info.pagetype) return;
+                var key = info.pagetype+'-'+info.module_name+'-'+info.action+'-'+info['sub_module_name'];
+                var params = {};
+                paramsKeys.forEach(function (paramKey) {
+                    if (info[paramKey] !== undefined) {
+                        params[paramKey] = info[paramKey];
+                    }
+                });
+                if (!map[key]) {
+                    map[key] = [info.pagetype, info['module_name'], info.action, info['sub_module_name'], params]
+                }
+                else {
+                    if (params) {
+                        for (var paramKey in params) {
+                            map[key][4][paramKey] = params[paramKey];
+                        }
+                    }
+                }
+            });
+            var objKeys = Object.keys(map);
+            objKeys.sort();
+            for (var i = 0; i < objKeys.length; i++) {
+                var paramArr = [];
+                var info = map[objKeys[i]];
+                for (var key in info[4]) {
+                    paramArr.push(key+':'+info[4][key]);
+                }
+                info[4] = paramArr.join('\n');
+                arr.push(map[objKeys[i]]);
+            }
+
+            var table = normalArrayToTable(arr, ['pagetype', 'module_name', 'action', 'sub_module_name', 'biz_param'],'json',{bWithoutEdit:true});
+            content.innerHTML = '';
+            content.appendChild(table);
+        }
+        catch (e) {
+            content.innerHTML = '';
+        }
+    }
+</script>
+</html>

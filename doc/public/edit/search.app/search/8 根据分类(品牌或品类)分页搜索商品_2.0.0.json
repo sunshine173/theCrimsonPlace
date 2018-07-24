@@ -1,0 +1,119 @@
+{
+  "apiDescription": "8 根据分类(品牌或品类)分页搜索商品",
+  "apiName": "8 根据分类(品牌或品类)分页搜索商品",
+  "path": "http://app.ymatou.com/api/nodesearch/prodbyassortmentpaged",
+  "apiGroup": "search.app",
+  "apiPermission": "无",
+  "version": "2.0.0",
+  "method": "POST",
+  "apiUse": [
+    "apiHeader",
+    "apiError"
+  ],
+  "params": {
+    "keyword": "要搜索的关键字， 品牌id、品类id、标签id、品牌名+空格+标签名",
+    "assortmenttype": 1,
+    "subkeyword": "string",
+    "pagesize": 1,
+    "pageindex": 1,
+    "sort": {
+      "type": 1,
+      "sort": 1
+    },
+    "filter": [
+      "筛选输入参数"
+    ]
+  },
+  "paramsDesc": {
+    "keyword": "要搜索的关键字， 品牌id、品类、标签、品牌名+空格+标签名",
+    "assortmenttype": "类型 \n1:品类\n2:品牌\n3:标签\n4:品牌名+空格+标签名",
+    "subkeyword": "页子类目的名字 可不传",
+    "pagesize": "一页多少数量",
+    "pageindex": "第几页 0代表第一页",
+    "sort.type": "买手排序类型\n不传sort就是默认的排序\n1:综合排序（默认排序）\n2:买手DSR排序",
+    "sort.sort": "升序还是降序(默认降序)\n1:升序\n2:降序"
+  },
+  "success": {
+    "prodList": [
+      "公共模块->商品卡片"
+    ],
+    "filterInfo": [
+      {
+        "type": 1,
+        "name": "group name",
+        "isFold": true,
+        "list": [
+          {
+            "id": 1,
+            "name": "筛选名字"
+          }
+        ]
+      }
+    ]
+  },
+  "successDesc": {
+    "filterInfo.0.type": "筛选类型\n1:折扣与服务(正在促销、包邮)\n2:品牌\n3:品类\n4:价格区间\n5:物流方式\n6:买手地区",
+    "filterInfo.0.name": "组名",
+    "filterInfo.0.isFold": "是否全部收拢",
+    "filterInfo.0.list.0.id": "筛选id\n筛选为价格时，id=0",
+    "filterInfo.0.list.0.name": "筛选名字 "
+  },
+  "group": "search.app",
+  "subGroup": "search",
+  "versionList": [
+    "1.0.0",
+    "2.0.0"
+  ],
+  "header": [
+    [
+      "accept-version",
+      "String",
+      "服务端版本号"
+    ],
+    [
+      "accept-key",
+      "String",
+      "服务端分配的调用方唯一名称代码"
+    ],
+    [
+      "app-version",
+      "String",
+      "客户端版本号"
+    ],
+    [
+      "deviceid",
+      "String",
+      "唯一设备号"
+    ],
+    [
+      "timestamp",
+      "String",
+      "时间戳(单位毫秒)"
+    ],
+    [
+      "sign",
+      "String",
+      "签名"
+    ],
+    [
+      "ymt-pars",
+      "String",
+      "需要登录权限的接口需要在这里传userid和accesstoken\naccesstoken: 登录令牌\nformat: api结果的响应格式,xml,json,jsonp\nidfa: ios的IDFA\nimei: android的IMEI\nnetwork: 网络,wifi,3g,4g\nclient: 客户端，ios,android,h5\ntype: app类型,buyer,seller\nchannel: 渠道\nos: 客户端操作系统\nuserid: 用户UserID\nyid:搜索所需yid\neg:accesstoken=0&format=json&idfa=1&imei=2&network=wifi&client=ios&type=buyer&channel=appstore&os=ios9.1&userid=123456&yid"
+    ]
+  ],
+  "relyOn": [
+    [
+      "获取分类页商品",
+      "皮勇泽",
+      "keyword.app.iapi.ymatou.com:3350/search/tagkeyword",
+      "wiki.ymatou.cn:8090/pages/viewpage.action?pageId=18910966"
+    ],
+    [
+      "",
+      "",
+      "",
+      ""
+    ]
+  ],
+  "apiSubGroup": "search"
+}

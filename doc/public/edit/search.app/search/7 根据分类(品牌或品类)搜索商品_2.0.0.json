@@ -1,0 +1,137 @@
+{
+  "apiDescription": "7 根据分类(品牌或品类)搜索商品",
+  "apiName": "7 根据分类(品牌或品类)搜索商品",
+  "path": "http://app.ymatou.com/api/nodesearch/prodbyassortment",
+  "apiGroup": "search.app",
+  "apiPermission": "无",
+  "version": "2.0.0",
+  "method": "GET",
+  "apiUse": [
+    "apiHeader",
+    "apiError"
+  ],
+  "params": {
+    "keyword": "string",
+    "assortmenttype": 1
+  },
+  "paramsDesc": {
+    "keyword": "要搜索的关键字， 品牌id、品类id、标签id、品牌名+空格+标签名",
+    "assortmenttype": "类型 \n1:品类\n2:品牌\n3:标签\n4:品牌名+空格+标签名"
+  },
+  "success": {
+    "brandDesc": "品牌描述",
+    "brandId": "string",
+    "title": "string",
+    "assortmentType": 1,
+    "type": 110,
+    "isAttention": "是否已关注",
+    "assortmentList": [
+      {
+        "id": 30,
+        "name": "休闲鞋",
+        "pic": "http://p5.img.ymatou.com/upload/product/small/90ed8c6707d64952b2d240ed1a377afb_s.jpg",
+        "type": 101,
+        "assortmentType": 3
+      }
+    ],
+    "noteCount": 1,
+    "beAttentionCount": 1
+  },
+  "successDesc": {
+    "brandDesc": "品牌描述",
+    "brandId": "品牌id 只是关注用",
+    "title": "这里返回 品牌名字、分类名字、标签名字、品牌名+空格+标签名",
+    "assortmentType": "分类类型 \n1:品类\n2:品牌\n3:标签\n4:品牌名+空格+标签名",
+    "type": "关注对象的类型 \n100.买手\n101.买家\n102.品牌\n103.品类\n104.活动话题\n105.运营推荐话题\n106.运营主题\n107.买家创建的主题\n108 运营笔记主题\n109 分类标签\n110 品牌标签组合",
+    "isAttention": "是否已关注",
+    "assortmentList.0.id": "分类id",
+    "assortmentList.0.name": "分类名称",
+    "assortmentList.0.pic": "分类图片",
+    "assortmentList.0.type": "关注对象的类型 \n100.买手\n101.买家\n102.品牌\n103.品类\n104.活动话题\n105.运营推荐话题\n106.运营主题\n107.买家创建的主题\n108 运营笔记主题\n109 分类标签\n110 品牌标签组合",
+    "assortmentList.0.assortmentType": "分类类型 \n1:品类\n2:品牌\n3:标签\n4:品牌名+空格+标签名",
+    "noteCount": "相关笔记数量",
+    "beAttentionCount": "被关注数量"
+  },
+  "group": "search.app",
+  "versionList": [
+    "1.0.0",
+    "2.0.0"
+  ],
+  "relyOn": [
+    [
+      "获取分类信息\n",
+      "许秀雷",
+      "misc.iapi.ymatou.com/api/category/getcategoryinfo\n",
+      ""
+    ],
+    [
+      "搜索关键词相关笔记数量\n",
+      "汪洋",
+      "socialbizer.ymatou.com:4170/search/categorypage",
+      ""
+    ],
+    [
+      "获取笔记分类id的笔记数\n",
+      "汪洋",
+      "socialbizer.ymatou.com:4170/search/categorypage\n",
+      ""
+    ],
+    [
+      "是否关注\n",
+      "曹瑞",
+      "relation.app.ymatou.com/api/UserAttent/GetUserAttentIsExistsByTypeAndIdsAsync\n",
+      ""
+    ],
+    [
+      "获取被关注数量\n",
+      "陈宇",
+      "relation.app.ymatou.com/api/UserAttent/GetBeAttentCountBySourcesAsync\n",
+      ""
+    ],
+    [
+      "",
+      "",
+      "",
+      ""
+    ]
+  ],
+  "subGroup": "search",
+  "header": [
+    [
+      "accept-version",
+      "String",
+      "服务端版本号"
+    ],
+    [
+      "accept-key",
+      "String",
+      "服务端分配的调用方唯一名称代码"
+    ],
+    [
+      "app-version",
+      "String",
+      "客户端版本号"
+    ],
+    [
+      "deviceid",
+      "String",
+      "唯一设备号"
+    ],
+    [
+      "timestamp",
+      "String",
+      "时间戳(单位毫秒)"
+    ],
+    [
+      "sign",
+      "String",
+      "签名"
+    ],
+    [
+      "ymt-pars",
+      "String",
+      "需要登录权限的接口需要在这里传userid和accesstoken\naccesstoken: 登录令牌\nformat: api结果的响应格式,xml,json,jsonp\nidfa: ios的IDFA\nimei: android的IMEI\nnetwork: 网络,wifi,3g,4g\nclient: 客户端，ios,android,h5\ntype: app类型,buyer,seller\nchannel: 渠道\nos: 客户端操作系统\nuserid: 用户UserID\nyid:搜索所需yid\neg:accesstoken=0&format=json&idfa=1&imei=2&network=wifi&client=ios&type=buyer&channel=appstore&os=ios9.1&userid=123456&yid"
+    ]
+  ],
+  "apiSubGroup": "search"
+}

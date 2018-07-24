@@ -1,0 +1,79 @@
+{
+  "apiDescription": "1 获取分类首页活动信息",
+  "apiName": "1 获取分类首页活动信息",
+  "path": "http://app.ymatou.com/api/nodesearch/assortment/activityinfo",
+  "apiGroup": "assortment",
+  "apiPermission": "无",
+  "version": "1.0.0",
+  "method": "GET",
+  "apiUse": [
+    "apiHeader",
+    "apiError"
+  ],
+  "params": {},
+  "paramsDesc": {},
+  "success": {
+    "activity": {
+      "id": 1,
+      "pic": "string",
+      "href": "string",
+      "type": 1,
+      "shareLink": "strin1g"
+    }
+  },
+  "successDesc": {
+    "activity.id": "活动编号",
+    "activity.pic": "图片",
+    "activity.href": "跳转链接",
+    "activity.type": "跳转类型\n0-未知\n1-H5\n2-频道\n3-直播\n4-商品\n5-专题\n6-笔记\n7-消息\n8-订单\n9-买手",
+    "activity.shareLink": "分享链接"
+  },
+  "group": "assortment",
+  "versionList": [
+    "1.0.0"
+  ],
+  "relyOn": [
+    [
+      "",
+      "",
+      ""
+    ]
+  ],
+  "header": [
+    [
+      "accept-version",
+      "String",
+      "服务端版本号"
+    ],
+    [
+      "accept-key",
+      "String",
+      "服务端分配的调用方唯一名称代码"
+    ],
+    [
+      "app-version",
+      "String",
+      "客户端版本号"
+    ],
+    [
+      "deviceid",
+      "String",
+      "唯一设备号"
+    ],
+    [
+      "timestamp",
+      "String",
+      "时间戳(单位毫秒)"
+    ],
+    [
+      "sign",
+      "String",
+      "签名"
+    ],
+    [
+      "ymt-pars",
+      "String",
+      "需要登录权限的接口需要在这里传userid和accesstoken\naccesstoken: 登录令牌\nformat: api结果的响应格式,xml,json,jsonp\nidfa: ios的IDFA\nimei: android的IMEI\nnetwork: 网络,wifi,3g,4g\nclient: 客户端，ios,android,h5\ntype: app类型,buyer,seller\nchannel: 渠道\nos: 客户端操作系统\nuserid: 用户UserID\nyid:搜索所需yid\neg:accesstoken=0&format=json&idfa=1&imei=2&network=wifi&client=ios&type=buyer&channel=appstore&os=ios9.1&userid=123456&yid"
+    ]
+  ]
+}

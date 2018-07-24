@@ -1,0 +1,166 @@
+{
+  "apiDescription": "1 搜索商品",
+  "path": "http://app.ymatou.com/api/nodesearch/prod",
+  "apiGroup": "search",
+  "version": "2.0.0",
+  "method": "POST",
+  "params": {
+    "keyword": "string",
+    "pagesize": 1,
+    "sort": {
+      "type": 1,
+      "sort": 1
+    },
+    "filter": [
+      "筛选输入参数"
+    ]
+  },
+  "paramsDesc": {
+    "keyword": "搜索的关键字",
+    "pagesize": "返回多少件商品，后面分页请求全部的时候pageindex从1开始",
+    "sort.type": "买手排序类型\n不传sort就是默认的排序\n1:综合排序（默认排序）\n2:买手DSR排序",
+    "sort.sort": "升序还是降序(默认降序)\n1:升序\n2:降序"
+  },
+  "success": {
+    "filterInfo": [
+      {
+        "type": 1,
+        "name": "group name",
+        "isFold": true,
+        "list": [
+          {
+            "id": 1,
+            "name": "筛选名字"
+          }
+        ]
+      }
+    ],
+    "recommendWord": "string",
+    "keywordList": [
+      ""
+    ],
+    "noteCount": 1,
+    "prodList": [
+      "商品卡片"
+    ],
+    "recommentProdList": [
+      "商品卡片"
+    ]
+  },
+  "successDesc": {
+    "filterInfo.0.type": "筛选类型",
+    "filterInfo.0.name": "组名",
+    "filterInfo.0.isFold": "是否全部收拢",
+    "filterInfo.0.list.0.id": "筛选id\n筛选为价格时，id=0",
+    "filterInfo.0.list.0.name": "筛选名字 ",
+    "recommendWord": "搜商品无结果会返回这个词，有这个词就需要显示无结果页的内容",
+    "keywordList": "相关关键词文字列表",
+    "noteCount": "相关笔记数量"
+  },
+  "group": "search.app",
+  "apiName": "1 搜索商品",
+  "versionList": [
+    "1.0.0",
+    "2.0.0"
+  ],
+  "header": [
+    [
+      "accept-version",
+      "String",
+      "服务端版本号"
+    ],
+    [
+      "accept-key",
+      "String",
+      "服务端分配的调用方唯一名称代码"
+    ],
+    [
+      "app-version",
+      "String",
+      "客户端版本号"
+    ],
+    [
+      "deviceid",
+      "String",
+      "唯一设备号"
+    ],
+    [
+      "timestamp",
+      "String",
+      "时间戳(单位毫秒)"
+    ],
+    [
+      "sign",
+      "String",
+      "签名"
+    ],
+    [
+      "ymt-pars",
+      "String",
+      "需要登录权限的接口需要在这里传userid和accesstoken\naccesstoken: 登录令牌\nformat: api结果的响应格式,xml,json,jsonp\nidfa: ios的IDFA\nimei: android的IMEI\nnetwork: 网络,wifi,3g,4g\nclient: 客户端，ios,android,h5\ntype: app类型,buyer,seller\nchannel: 渠道\nos: 客户端操作系统\nuserid: 用户UserID\nyid:搜索所需yid\neg:accesstoken=0&format=json&idfa=1&imei=2&network=wifi&client=ios&type=buyer&channel=appstore&os=ios9.1&userid=123456&yid"
+    ]
+  ],
+  "relyOn": [
+    [
+      "搜索栏文字 搜索相关关键词 只返回文本",
+      "皮勇泽",
+      "suggestbizer.ymatou.com:2150/search/expansion",
+      ""
+    ],
+    [
+      "搜索关键词相关笔记数量",
+      "汪洋",
+      "socialbizer.ymatou.com:4170/search/categorypage",
+      ""
+    ],
+    [
+      "按关键字搜索商品",
+      "王强",
+      "keyword.app.iapi.ymatou.com:3350/search/productkeyword",
+      "wiki.ymatou.cn:8090/pages/viewpage.action?pageId=16254554"
+    ],
+    [
+      "获取国家详情",
+      "许秀雷",
+      "misc.iapi.ymatou.com/api/country/getcountrylist",
+      "http://172.16.100.111:8090/pages/viewpage.action?pageId=19628259#id-其他API接口-3.1获取国家列表"
+    ],
+    [
+      "获取商品信息服务",
+      "祝金峰",
+      "productlist.iapi.ymatou.com/api/Product/GetProductListByProductIdList",
+      ""
+    ],
+    [
+      "获取商品价格服务",
+      "祝金峰",
+      "price.iapi.ymatou.com/api/Product/GetProductPriceListByProductIdList",
+      ""
+    ],
+    [
+      "获取买手信息",
+      "章惠都",
+      "sellerinfo.iapi.ymatou.com/api/QuerySellerInfo/GetSellerInfos",
+      ""
+    ],
+    [
+      "获取促销信息 满减、满折",
+      "刘宏",
+      "sellerpromotion.api.ymatou.com/api/promotion/GetPromotionByProductIds\n",
+      "wiki.ymatou.cn:8090/pages/viewpage.action?pageId=18910490"
+    ],
+    [
+      "搜索商品数>0&& <=10时推荐商品",
+      "王云广",
+      "rec.app.ymatou.com:3150/rec/lesssearch/glproduct",
+      "wiki.ymatou.cn:8090/pages/viewpage.action?pageId=21005142"
+    ],
+    [
+      "",
+      "",
+      "",
+      ""
+    ]
+  ],
+  "subGroup": "search"
+}

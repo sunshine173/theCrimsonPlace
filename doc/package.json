@@ -1,0 +1,20 @@
+{
+  "name": "doc",
+  "version": "0.0.1",
+  "description": "ymt node api doc",
+  "main": "app.js",
+  "scripts": {
+    "test": "npm test"
+  },
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "express": "^4.14.0",
+    "mkdir-p": "0.0.7",
+    "socket.io": "^1.4.8",
+    "ymt-node-apiclient": "^1.0.19"
+  },
+  "author": {
+    "name": "sunxiangdong"
+  },
+  "license": "ISC"
+}

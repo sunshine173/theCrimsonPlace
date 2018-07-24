@@ -1,0 +1,180 @@
+body {
+  font-family: Georgia, serif;
+  /*padding-bottom: 70px;*/
+  overflow: hidden;
+}
+
+div#list {
+  overflow: auto;
+  height: 100%;
+  width: 20%;
+  float: left;
+}
+
+div.editWindow {
+  width: 500px;
+  height: 700px;
+  position: absolute;
+  background-color: white;
+  top:150px;
+  left:1200px;
+  border: #e0e0e0 1px solid;
+  overflow:auto;
+  cursor:pointer;
+}
+
+div.content {
+  overflow:auto;
+  height:96.5%;
+  width:78%;
+  float:right;
+  left:50px;
+}
+
+div.title {
+  font-size: 32px;
+}
+
+div.method#get {
+  background-color: #008800;
+  border-radius: 5px;
+  width:50px;
+  height: 30px;
+  line-height:30px;
+  text-align:center;
+  font-size: 20px;
+  color:white;
+  font-weight:bold;
+}
+
+div.method#post {
+  background-color: #000088;
+  border-radius: 5px;
+  width:60px;
+  height: 30px;
+  line-height:30px;
+  text-align:center;
+  font-size: 20px;
+  color:white;
+  font-weight:bold;
+}
+div.method#delete {
+  background-color: #880000;
+  border-radius: 5px;
+  width:90px;
+  height: 30px;
+  line-height:30px;
+  text-align:center;
+  font-size: 20px;
+  color:white;
+  font-weight:bold;
+}
+
+div.path {
+  font-size: 20px;
+  background-color: #232323;
+  border-radius: 5px;
+  color:white;
+  height: 40px;
+  line-height:40px;
+  text-indent:2em;
+}
+
+div.apiPermission {
+  font-size: 20px;
+  background-color: #232323;
+  border-radius: 5px;
+  color:white;
+  height: 40px;
+  line-height:40px;
+  width: 100px;
+  text-align:center;
+}
+
+ul {
+  background-color:#f5f5f5;
+  font-size:24px;
+  color:#005580;
+}
+
+nav {
+  border: 1px solid #e5e5e5;
+}
+
+li {
+  font-size:16px;
+  color:#0088CC;
+  list-style:none;
+  margin:2px;
+}
+
+li.headerNew {
+  font-size:18px;
+  margin-left:-20px;
+  color:#005580;
+  cursor:pointer;
+}
+
+li.apiNew {
+  margin-left:-20px;
+  cursor:pointer;
+}
+
+li.apiNew:hover {
+  background-color:#ffe87c;
+  color:#005580;
+}
+
+li.header {
+  font-size:24px;
+  color:#005580;
+  height: 26px
+}
+
+li.api {
+  cursor:pointer;
+  background-color:#f5f5f5;
+}
+
+li.api:hover {
+  background-color:#ffe87c;
+  color:#005580;
+}
+
+li#currentApi {
+  background-color:#0088cc;
+  color:white;
+}
+
+tr.header {
+  background-color: #f5f5f5;
+  border:1px solid #d0d0d0;
+  font-weight:bold;
+  color:black;
+}
+
+table {
+  border-collapse: collapse;
+  color:dimgrey;
+  margin: 2px 5px;
+}
+
+th {
+  background-color: #f5f5f5;
+  text-align: left;
+  font-weight: 700;
+  padding: 4px 8px;
+  border: #e0e0e0 1px solid;
+}
+
+td {
+  vertical-align: top;
+  padding: 2px 8px;
+  border: #e0e0e0 1px solid;
+}
+
+tr {
+  vertical-align: top;
+  padding: 2px 8px;
+  border: #e0e0e0 1px solid;
+}

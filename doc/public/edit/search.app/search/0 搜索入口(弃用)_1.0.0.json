@@ -1,0 +1,105 @@
+{
+  "apiDescription": "0 搜索入口(安卓)",
+  "apiName": "0 搜索入口(安卓)",
+  "path": "http://app.ymatou.com/api/nodesearch/search",
+  "apiGroup": "search",
+  "apiPermission": "无",
+  "version": "1.0.0",
+  "method": "GET或POST",
+  "apiUse": [
+    "apiHeader",
+    "apiError"
+  ],
+  "params": {
+    "type": 1,
+    "onlyprod": true,
+    "keyword": "string",
+    "pagesize": 10,
+    "pageindex": 1,
+    "[countryid]": 1,
+    "[deliveryid]": 1,
+    "assortmenttype": 1
+  },
+  "paramsDesc": {
+    "type": "搜索类型 \n1:关键字搜商品 \n2:关键字搜笔记\n3:笔记分类id搜笔记\n4:关键字搜买手\n5:买手id搜商品\n6:分类搜商品\n7:优惠券id搜适用商品\n8:获取文字相关关键字\n9:搜索下拉提示关键字",
+    "onlyprod": "true：只返回商品部分的信息，false：返回包含基础信息",
+    "keyword": "所有搜索类型的参数都在这里",
+    "pagesize": "一页多少数量",
+    "pageindex": "第几页 0代表第一页",
+    "[countryid]": "国家id, 不传代表全部",
+    "[deliveryid]": "物流id，不传代表全部",
+    "assortmenttype": "类型 \n1:品类\n2:品牌\n3:标签\n4:品牌名+空格+标签名"
+  },
+  "success": {
+    "type1": "string",
+    "type2": "string",
+    "type3": "string",
+    "type4": "string",
+    "type5": "string",
+    "type6": "string",
+    "type7": "string",
+    "type8": "string",
+    "type9": "string"
+  },
+  "successDesc": {
+    "type1": "<a href=\"#api-search-get_search_prod_list\">返回值</a>",
+    "type2": "<a href=\"#api-search-get_search_note_list_page\">返回值</a>",
+    "type3": "<a href=\"#api-search-get_search_note_list_page_by_id\">返回值</a>",
+    "type4": "<a href=\"#api-search-get_search_seller_list\">返回值</a>",
+    "type5": "<a href=\"#api-search-get_search_prod_list_by_sellerid\">返回值</a>",
+    "type6": "<a href=\"#api-search-get_search_prod_list_by_assortment\">返回值</a>",
+    "type7": "<a href=\"#api-search-get_search_prod_list_by_coupon\">返回值</a>",
+    "type8": "<a href=\"#api-search-get_search_keywords_relevantwords\">返回值</a>",
+    "type9": "<a href=\"#api-search-get_search_keywords_list\">返回值</a>"
+  },
+  "group": "search",
+  "versionList": [
+    "1.0.0",
+    "2.0.0"
+  ],
+  "header": [
+    [
+      "accept-version",
+      "String",
+      "服务端版本号"
+    ],
+    [
+      "accept-key",
+      "String",
+      "服务端分配的调用方唯一名称代码"
+    ],
+    [
+      "app-version",
+      "String",
+      "客户端版本号"
+    ],
+    [
+      "deviceid",
+      "String",
+      "唯一设备号"
+    ],
+    [
+      "timestamp",
+      "String",
+      "时间戳(单位毫秒)"
+    ],
+    [
+      "sign",
+      "String",
+      "签名"
+    ],
+    [
+      "ymt-pars",
+      "String",
+      "需要登录权限的接口需要在这里传userid和accesstoken\naccesstoken: 登录令牌\nformat: api结果的响应格式,xml,json,jsonp\nidfa: ios的IDFA\nimei: android的IMEI\nnetwork: 网络,wifi,3g,4g\nclient: 客户端，ios,android,h5\ntype: app类型,buyer,seller\nchannel: 渠道\nos: 客户端操作系统\nuserid: 用户UserID\nyid:搜索所需yid\neg:accesstoken=0&format=json&idfa=1&imei=2&network=wifi&client=ios&type=buyer&channel=appstore&os=ios9.1&userid=123456&yid"
+    ]
+  ],
+  "relyOn": [
+    [
+      "",
+      "",
+      "",
+      ""
+    ]
+  ]
+}

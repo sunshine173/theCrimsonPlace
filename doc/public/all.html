@@ -1,0 +1,37 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>所有api</title>
+    <link href="/css/style.css" rel="stylesheet" media="screen, print">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/js/client.js"></script>
+    <script src="/js/jsonToTableWithEdit.js"></script>
+    <script>
+        var enableEdit = false;
+        var bShowHeader = false;
+        var curTable;
+        var contentDiv, editSwitch, listDiv, editWindowDiv, headerSwitch;
+        var client;
+        var moduleInfo = {};
+        function onLoad() {
+            client = createClient(window.location.host);
+            client.send({method: 'getAllApi', params: []});
+        }
+
+        function drawAllApi(packet) {
+            var myBody = document.getElementById('myBody');
+            var arr = [];
+            var list = packet.info;
+            list.forEach(function (info) {
+               arr.push([info.group, info.name, info.method.toUpperCase(), info.path, info.version, info.relyOn]);
+            });
+            var table = normalArrayToTable(arr, ['group', 'name', 'method', 'path', 'version', 'relyOn@'], 'success',{bWithoutEdit:true});
+            myBody.appendChild(table);
+        }
+    </script>
+</head>
+<body id="myBody" onload="onLoad()" style="overflow: auto">
+
+</body>
+</html>

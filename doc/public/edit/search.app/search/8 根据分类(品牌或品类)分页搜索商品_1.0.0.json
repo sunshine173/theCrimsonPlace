@@ -1,0 +1,65 @@
+{
+  "apiDescription": "8 根据分类(品牌或品类)分页搜索商品",
+  "apiName": "get search prod list by assortment paged",
+  "path": "nodesearch/prodbyassortmentpaged",
+  "apiGroup": "search",
+  "apiPermission": "无",
+  "version": "1.0.0",
+  "method": "get",
+  "apiUse": [
+    "apiHeader",
+    "apiError"
+  ],
+  "params": {
+    "keyword": "要搜索的关键字， 品牌id、品类id、标签id、品牌名+空格+标签名",
+    "assortmenttype": 1,
+    "countryid<code>可选</code>": "",
+    "deliveryid<code>可选</code>": "",
+    "pagesize<code>可选</code>": 1,
+    "pageindex<code>可选</code>": 1
+  },
+  "paramsDesc": {
+    "keyword": "要搜索的关键字， 品牌id、品类、标签、品牌名+空格+标签名",
+    "assortmenttype": "类型 <br/>1:品类<br/>2:品牌<br/>3:标签<br/>4:品牌名+空格+标签名",
+    "countryid<code>可选</code>": "国家id",
+    "deliveryid<code>可选</code>": "物流id",
+    "pagesize<code>可选</code>": "返回多少个商品, 默认返回10个",
+    "pageindex<code>可选</code>": "页码 0是第一页"
+  },
+  "success": {
+    "prodList": [
+      {
+        "id": "4cbf26db-3eb5-4100-a44b-fc99c4d4d0a3",
+        "name": "【SKU-多规格】~新客价，VIP价：天阶夜色凉如水 ，坐看牵牛织女。迢迢牵牛星，皎皎河汉女~~~",
+        "deliveryType": 6,
+        "price": 5,
+        "stock": 136,
+        "pic": "http://pc4.img.ymatou.com/G01/shangou/M00/10/B8/rBBlD1dPu5eAE2PwAACo_HjiPvc538_w_lb.jpg",
+        "productType": "商品类型，扫货还是现货<br/>1:扫货<br/>2:现货<br/>3:现货团商品",
+        "tariffType": 1,
+        "sellerInfo": {
+          "id": 483838,
+          "name": "麦兜兜heidi",
+          "avatarUrl": "http://p4.img.ymatou.com/upload/userlogo/original/483838_21db8318aa3e4b7c89cf3db2224e2795_o.jpg",
+          "countryName": "美国",
+          "countryIconUrl": "http://img.ymatou.com/app/flag/circle/America.png"
+        }
+      }
+    ]
+  },
+  "successDesc": {
+    "prodList.0.id": "商品id",
+    "prodList.0.name": "商品名字",
+    "prodList.0.deliveryType": "配送方式<br/>0:未知<br/>1:国内快递<br/>2:海外直邮<br/>3:贝海直邮<br/>4:卖家保税<br/>5:贝海保税<br/>6:海外认证直邮<br/>7:海外拼邮",
+    "prodList.0.price": "商品价格 取得是所有价格里的最低价",
+    "prodList.0.stock": "库存",
+    "prodList.0.pic": "商品图片",
+    "prodList.0.productType": "商品类型，扫货还是现货<br/>1:扫货<br/>2:现货<br/>3:现货团商品",
+    "prodList.0.tariffType": "报税类型(包邮包税)<br/>0：不包邮不包税<br/>1:包邮<br/>2:包税<br/>3:包邮包税",
+    "prodList.0.sellerInfo.id": "商品id",
+    "prodList.0.sellerInfo.name": "买手名字",
+    "prodList.0.sellerInfo.avatarUrl": "买手头像url",
+    "prodList.0.sellerInfo.countryName": "国家中文名",
+    "prodList.0.sellerInfo.countryIconUrl": "买手国家国旗url"
+  }
+}

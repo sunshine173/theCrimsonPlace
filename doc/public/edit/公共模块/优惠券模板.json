@@ -1,0 +1,43 @@
+{
+  "path": "",
+  "apiGroup": "公共模块",
+  "method": "get",
+  "params": {},
+  "paramsDesc": {},
+  "success": {
+    "code": "161110117655440IDM48MU",
+    "desc": "满100减60",
+    "value": 60,
+    "useLimitsAmount": "满100元可用",
+    "useLimitsScene": "全场通用-11.10-优惠券翻倍_6",
+    "expiredTime": 1483113599000,
+    "isExpiring": false,
+    "couponType": 1,
+    "expiredTimeDesc": "2016/12/30 23:59到期"
+  },
+  "successDesc": {
+    "code": "优惠码",
+    "desc": "优惠信息说明(满减，满折) 例:满199减99",
+    "value": "优惠值",
+    "useLimitsAmount": "使用限制额度说明（满100可用）",
+    "useLimitsScene": "使用场景限制说明（全场通用，限商品，限品类）",
+    "expiredTime": "优惠券过期时间单位毫秒（请使用expiredTimeDesc代替）",
+    "isExpiring": "是否即将失效",
+    "couponType": "优惠券类型\n1:优惠券\n2:优惠短码",
+    "expiredTimeDesc": "优惠券过期时间描述(2016/12/12到期 OR  2016/12/12至2016/12/13 )"
+  },
+  "group": "公共模块",
+  "apiName": "优惠券模板",
+  "usage": {},
+  "relyOn": [
+    [
+      "",
+      "",
+      "",
+      ""
+    ]
+  ],
+  "usageDesc": {
+    "undefined": "app.ymatou.com/api/trading/preorderinfo"
+  }
+}

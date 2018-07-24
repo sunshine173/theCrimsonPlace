@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>client</title>
+    <script src="/js/wsclient.js"></script>
+  </head>
+  <body>
+    <div id="app"></div>
+    <button onclick="createTable()">createTable</button>
+    <br/>
+    <input type="text" id="tableId"></input><button onclick="joinTable()">joinTable</button><br/>
+    <input type="text" id="msg"></input><button onclick="sendMsg()">sendMsg</button>
+  </body>
+
+    <script>
+        var myId, tableId, createTable, joinTable, leaveTable;
+        var self = this;
+        function onMsg(msg) {
+            console.log(msg);
+        }
+        var myClient = new Client(function () {
+            myClient.send('login', [], function(result) {
+                console.log(`client recv:${JSON.stringify(result)}`)
+                myId = result.id;
+            });
+
+            createTable = function() {
+                myClient.send('createTable', function(result){
+                    console.log('createTable:',JSON.stringify(result));
+                    tableId = result.tableId;
+                });
+            }
+
+            joinTable = function() {
+                var tableId = document.getElementById('tableId').value || tableId;
+                tableId = parseInt(tableId);
+                myClient.send('joinTable', tableId, function(result){
+                    console.log('joinTable:',JSON.stringify(result));
+                });
+            }
+
+            leaveTable = function() {
+                myClient.send('leaveTable', tableId, function(result){
+                    console.log('leaveTable:',JSON.stringify(result));
+                });
+            }
+
+            sendMsg = function() {
+                var msg = document.getElementById('msg').value || tableId;
+                if (!msg) return;
+                myClient.send('tabelMsg', msg, function(result){
+                    console.log('tabelMsg:',JSON.stringify(result));
+                });
+            }
+        }, onMsg)
+    </script>
+</html>

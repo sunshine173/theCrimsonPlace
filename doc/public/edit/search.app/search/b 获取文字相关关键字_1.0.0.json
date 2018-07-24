@@ -1,0 +1,29 @@
+{
+  "apiDescription": "b 获取文字相关关键字",
+  "apiName": "get search keywords relevantwords",
+  "path": "nodesearch/relevantwords",
+  "apiGroup": "search",
+  "apiPermission": "无",
+  "version": "1.0.0",
+  "method": "get",
+  "apiUse": [
+    "apiHeader",
+    "apiError"
+  ],
+  "params": {
+    "keyword": "",
+    "pagesize": 1,
+    "pageindex": 1
+  },
+  "paramsDesc": {
+    "keyword": "搜索的关键字",
+    "pagesize": "一页多少数量",
+    "pageindex": "第几页 0代表第一页"
+  },
+  "success": {
+    "list": [
+      ""
+    ]
+  },
+  "successDesc": {}
+}

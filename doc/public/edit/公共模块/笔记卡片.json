@@ -1,0 +1,78 @@
+{
+  "apiDescription": "笔记卡片",
+  "path": "",
+  "apiGroup": "公共模块",
+  "method": "get",
+  "params": {},
+  "paramsDesc": {},
+  "success": {
+    "id": "string",
+    "content": "string",
+    "description": "string",
+    "picUrl": "string",
+    "picScale": [
+      1
+    ],
+    "picCount": 1,
+    "noteSource": 1,
+    "noteType": 1,
+    "favoriteCount": 1,
+    "isFavorite": true,
+    "commentCount": 1,
+    "url": "string",
+    "userId": 1,
+    "nickName": "string",
+    "userLogo": "string",
+    "level": 1
+  },
+  "successDesc": {
+    "id": "笔记id",
+    "content": "长图文笔记内容 ",
+    "description": "笔记描述、标题",
+    "picUrl": "笔记第一张图片url",
+    "picScale": "笔记图片长宽比 [1,1]\n对于长方形两对相对的边，我们称横边为长，竖边为宽。",
+    "picCount": "笔记内的图片数量",
+    "noteSource": "笔记来源\n0：买家添加\n1：历史数据 \n2：运营添加 \n3：买手添加",
+    "noteType": "笔记类型:\n1:普通笔记\n2:专题笔记\n3:长图文笔记\n4:视频笔记",
+    "favoriteCount": "赞数量",
+    "isFavorite": "是否已赞过",
+    "commentCount": "评论数",
+    "url": "笔记详情页跳转地址",
+    "userId": "用户id",
+    "nickName": "用户名字",
+    "userLogo": "头像url",
+    "level": "只有是买手创建的笔记才会返回level字段\n\n1:TOP (最顶级)\n2:Pro (专业买手)\n3:Semi-Pro(中级买手)\n不返回或其他返回就是初级买手"
+  },
+  "group": "公共模块",
+  "apiName": "笔记卡片",
+  "relyOn": [
+    [
+      "获取笔记详情",
+      "田中海",
+      "api.social.ymatou.com/api/socialinner/GetNoteCardList",
+      ""
+    ],
+    [
+      "获取买手详情",
+      "章惠都",
+      "sellerinfo.iapi.ymatou.com/api/QuerySellerInfo/GetSellerInfos",
+      ""
+    ],
+    [
+      "获取笔记评论数",
+      "许秀雷",
+      "comments.iapi.ymatou.com/api/buyer/GetNoteCommentCountByNoteIdList \n",
+      ""
+    ],
+    [
+      "",
+      "",
+      "",
+      ""
+    ]
+  ],
+  "usage": {},
+  "usageDesc": {
+    "undefined": "app.ymatou.com/api/usercenter/topic/topicitems"
+  }
+}
